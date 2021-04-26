@@ -15,14 +15,20 @@ router.get('/login', (req, res, next) => {
     res.render('login')
 })
 
-router.get('/private', ensureLogin.ensureLoggedIn(), (req, res) => {
-    res.render('private', { user: req.user });
+router.post('/login', passport.authenticate('local', {
+    successRedirect: '/dashboard',
+    failureRedirect: '/login',
+    passReqToCallback: true,
+}))
+
+router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res) => {
+    res.render('dashboard', { user: req.user });
     console.log(req.user)
-});
+})
 
 router.get('/private/admin-panel', checkAdmin('admin'), (req, res) => {
     res.render('admin-panel', { user: req.user });
     console.log(req.user)
-  })
+})
 
 module.exports = router;
