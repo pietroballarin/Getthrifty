@@ -15,6 +15,7 @@ router.get('/', (req, res, next) => {
   })
 });
 
+
 router.post('/', (req, res, next) => {
 })
 
@@ -24,3 +25,6 @@ router.get('/logout', (req, res) => {
 });
 
 module.exports = router;
+
+module.exports = router;
+

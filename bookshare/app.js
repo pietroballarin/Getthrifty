@@ -85,6 +85,7 @@ app.locals.title = `${capitalized(projectName)} created with Ironlauncher`;
 const index = require("./routes/index");
 app.use("/", index);
 
+
 const signup = require("./routes/signup");
 app.use("/", signup);
 
@@ -96,6 +97,10 @@ app.use("/", dashboard);
 
 const admin = require("./routes/adminPanel");
 app.use("/", admin);
+
+const product = require("./routes/product");
+app.use("/", product);
+
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
