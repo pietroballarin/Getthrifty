@@ -17,6 +17,16 @@
         </ul>
     </nav>
 </div>
+
+<div>
+    <form action="/" method="POST">
+        <select name="categories">
+        {{#each categoryList}}
+        <option>{{name}}</option>
+        {{/each}}
+        </select>
+    </form>
+</div>
 {{!-- <div>
   <h2>
     <a href="/google">Login with Google</a>

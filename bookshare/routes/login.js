@@ -26,7 +26,7 @@ router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res) => {
     console.log(req.user)
 })
 
-router.get('/private/admin-panel', checkAdmin('admin'), (req, res) => {
+router.get('/admin-panel', checkAdmin('admin'), (req, res) => {
     res.render('admin-panel', { user: req.user });
     console.log(req.user)
 })

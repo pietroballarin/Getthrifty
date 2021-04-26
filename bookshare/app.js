@@ -94,6 +94,9 @@ app.use("/", login);
 const dashboard = require("./routes/dashboard");
 app.use("/", dashboard);
 
+const admin = require("./routes/adminPanel");
+app.use("/", admin);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
