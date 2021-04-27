@@ -1,0 +1,14 @@
+<h1>Hello {{user.fullname}}</h1>
+
+<h2>
+    <a href="/products/new">Create A New Ad</a>
+</h2>
+<div>
+    <form action="/" method="POST">
+        <select name="categories">
+        {{#each categoryList}}
+        <option>{{name}}</option>
+        {{/each}}
+        </select>
+    </form>
+</div>

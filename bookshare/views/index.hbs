@@ -1,3 +1,40 @@
-<h1>{{title}} 🚀</h1>
-<p>Welcome Ironhacker!</p>
-<a href="/add">Add a product</a>
+<h1>BOOKSHARE</h1>
+<div>
+    <nav>
+        <ul>
+            <li>
+                <a href="/dashboard">Dashboard</a>
+            </li>
+            <li>
+                <a href="/signup">Sign Up</a>
+            </li>
+            <li>
+                <a href="/login">Log In</a>
+            </li>
+            <li>
+                <a href="/logout">Log Out</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div>
+    <form action="/" method="POST">
+        <select name="categories">
+        {{#each categoryList}}
+        <option>{{name}}</option>
+        {{/each}}
+        </select>
+    </form>
+</div>
+<div>
+    {{#each productInfo}}
+    <h2>{{title}}</h2>
+    {{/each}}
+    <a href="/products/show">see</a>
+</div>
+{{!-- <div>
+  <h2>
+    <a href="/google">Login with Google</a>
+  </h2>
+</div> --}}

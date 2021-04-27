@@ -6,7 +6,8 @@ const productSchema = new Schema({
   condition: String,
   price: Number,
   deliveryOptions: String,
-  category: [{type: Schema.Types.ObjectId, ref: 'Category'}]
+  categories: [{type: Schema.Types.ObjectId, ref: 'category'}],
+  creator: [{type: Schema.Types.ObjectId, ref: 'user'}]
 })
 
 const Product = model('Product', productSchema);
