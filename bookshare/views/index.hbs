@@ -28,6 +28,12 @@
         </select>
     </form>
 </div>
+<div>
+    {{#each productInfo}}
+    <h2>{{title}}</h2>
+    {{/each}}
+    <a href="/products/show">see</a>
+</div>
 {{!-- <div>
   <h2>
     <a href="/google">Login with Google</a>
