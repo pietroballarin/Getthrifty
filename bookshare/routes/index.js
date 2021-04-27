@@ -1,23 +1,36 @@
 const router = require("express").Router();
 const Category = require('../models/Category');
-// const Product =
+const Product = require("../models/Product");
+
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  // Product.find()
-  // .then (products => {
+  Product.find()
+   .then(products => {
+    console.log(products)
+  
   Category.find()
   .then(categories => {
-    res.render('index', {categoryList: categories})
+    res.render('index', {categoryList: categories, productInfo: products})
   })
+})
   .catch(err => {
     next(err);
   })
 });
 
+router.get('/products/:id', (req, res, next) => {
+  Product.findById(req.params.id)
+    .then(product => {
+      res.render('products/show', {productInfo: product})
+    })
+    .catch(err => {
+      next(err);
+    })
+});
 
-router.post('/', (req, res, next) => {
-})
+// router.post('/', (req, res, next) => {
+// })
 
 router.get('/logout', (req, res) => {
   req.logout();
@@ -25,6 +38,3 @@ router.get('/logout', (req, res) => {
 });
 
 module.exports = router;
-
-module.exports = router;
-
