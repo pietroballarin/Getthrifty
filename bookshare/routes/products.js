@@ -3,40 +3,32 @@ const Product = require("../models/Product");
 const Category = require('../models/Category');
 const User = require("../models/User.model");
 const router = express.Router();
+const ensureLogin = require('connect-ensure-login');
 
-// router.get("/show", (req, res, next) => {
-//   Product.find()
-//   .then(productData => {
-//     res.render("p",{productData});
-//   })
-//   .catch(error => {
-//     console.log(error);
-//     next(error);
-//   })
-// });
+router.get('/products/new', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  Category.find({})
+    .then(categories => {
+      res.render('products/new', { user: req.user, categoryList: categories})
+    })
+  });
 
 router.post('/', (req, res) => {
-  const { title, description, condition, price, categories, creator } = req.body;
-  console.log(title)
+  console.log(req.session.passport.user, "USER")
+  const { title, description, condition, price, categories, creator} = req.body;
   Product.create({
     title: title,
     description: description,
     condition: condition,
     price: price,
     categories: categories,
-    creator: creator
+    creator: req.session.passport.user
   })
+  
     .then(productAdd => {
-      console.log(productAdd)
-      //   Category.find()
-      //   .then(categories => {
+      
         res.redirect('/')
-    // })
     })    
 });
 
-// router.get('/add', (req, res) => {
-//   res.render('products/new.hbs')
-// })
 
 module.exports = router;

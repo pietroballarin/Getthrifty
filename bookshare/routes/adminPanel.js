@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const User = require('../models/User.model');
 const Category = require('../models/Category');
+const Product = require("../models/Product");
 
 router.post('/admin-panel', (req, res, next) => {
     const { name } = req.body;
@@ -14,6 +15,8 @@ router.post('/admin-panel', (req, res, next) => {
       .catch(err => {
         next(err);
       })
-  })
+})
+
+
 
 module.exports = router;

@@ -22,13 +22,14 @@ router.post('/login', passport.authenticate('local', {
 }))
 
 router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res) => {
+  Product.find()
     res.render('dashboard', { user: req.user });
-    console.log(req.user)
+    // console.log(req.user)
 })
 
 router.get('/admin-panel', checkAdmin('admin'), (req, res) => {
     res.render('admin-panel', { user: req.user });
-    console.log(req.user)
+    // console.log(req.user)
 })
 
 module.exports = router;
