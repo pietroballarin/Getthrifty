@@ -4,12 +4,17 @@ const productSchema = new Schema({
   title: String,
   description: String,
   condition: String,
+  userEmail: String,
+  address: String,
   price: Number,
   deliveryOptions: String,
-  categories: [{type: Schema.Types.ObjectId, ref: 'category'}],
+  categories: {
+    type: String,
+    enum: ['books', 'clothes', 'cars', 'collectibles & antiquities', 'electronics', 'furniture', 'sport', 'bicycles']
+  },
   imgName: String,
   imgPath: String,
-  publicId: String
+  publicId: String,
   creator: {type: Schema.Types.ObjectId, ref: 'user'}
 })
 

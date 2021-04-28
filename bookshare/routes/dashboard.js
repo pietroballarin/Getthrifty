@@ -6,39 +6,39 @@ const ensureLogin = require('connect-ensure-login');
 
 
 router.get('/dashboard/new', ensureLogin.ensureLoggedIn(), (req, res, next) => {
-Category.find({})
-  .then(categories => {
-    res.render('products/new', { user: req.user, categoryList: categories})
-  })
-  .catch(err => {
-    next(err);
-  })
+    const categories = ['books', 'clothes', 'cars', 'collectibles & antiquities', 'electronics', 'furniture', 'sport', 'bicycles']
+    res.render('products/new', { user: req.user, categories})
+  
 });
 
-router.post('/dashboard', (req, res, next) => {
-  const {title, description, price, category} = req.body;
-  Product.findByIdAndUpdate(req.params.id, {
-    title: title,
-    description: description,
-    price: price,
-    $push: {category: category}
-  })
+router.get('/dashboard/edit/:id', (req, res, next) => {
+  Product.findById(req.params.id)
   .then(product => {
-    res.redirect('dashboard')
+    res.render('dashboard/edit', {productInfo: product})
   })
-  .catch(err => {
-    next(err);
-  })
-});
-
-router.get('/dashboard/edit', (req, res, next) => {
-  res.render('dashboard/edit')
 })
 
 router.post('/dashboard', (req, res, next) => {
-  Product.findByIdAndDelete(req.params.id)
+  const {title, description, condition, price} = req.body;
+  Product.findByIdAndUpdate(req.params.id, {
+    title: title,
+    description: description,
+    condition: condition,
+    price: price
+  })
   .then(product => {
     res.redirect('dashboard')
+  })
+  .catch(err => {
+    next(err);
+  })
+});
+
+
+router.post('/dashboard/:id', (req, res, next) => {
+  Product.findByIdAndDelete(req.params.id)
+  .then(product => {
+    res.redirect('/dashboard')
   })
   .catch(err => {
     next(err);

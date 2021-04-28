@@ -100,6 +100,9 @@ app.use("/", admin);
 const products = require("./routes/products");
 app.use("/", products);
 
+const category = require("./routes/category");
+app.use("/", category);
+
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

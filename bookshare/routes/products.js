@@ -8,7 +8,7 @@ const { uploader, cloudinary } = require("../config/cloudinary");
 
 
 router.post('/', uploader.single('photo'), (req, res) => {
-  const { title, description, condition, price, categories, creator } = req.body;
+  const { title, description, condition, price, categories, creator} = req.body;
   // const imgPath = req.file.path;
   console.log(req.file)
   if (req.file.path) {
