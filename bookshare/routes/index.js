@@ -18,17 +18,7 @@ router.get('/', (req, res, next) => {
   })
 });
 
-router.get('/adminPanel', ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  Product.find()
-   .then(products => {
-    res.render('admin-panel', {productInfo: products})
-  })
-  .catch(err => {
-    next(err);
-  })
-});
-
-router.get('/dashboard', (req, res, next) => {
+router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   const creatorId = req.session.passport.user;
   Product.find({creator: creatorId})
   .then(products => {
@@ -39,23 +29,24 @@ router.get('/dashboard', (req, res, next) => {
   })
 })
 
+module.exports = router;
 
-// router.get('/:id', (req, res, next) => {
-//   Product.findById(req.params.id)
-//     .then(product => {
-//       res.render('products/show.hbs', {productInfo: product})
-//     })
-//     .catch(err => {
-//       next(err);
-//     })
-// });
-
-// router.post('/', (req, res, next) => {
-// })
+// router.get('/products/search', (req, res, next) => {
+//   const { title } = req.query;
+//   console.log(req.query)
+//   Product.find({$text: {$search: title}})
+//   .then(products => { 
+    
+//   res.render('products', { productInfo: products })
+//   })
+//   .catch(err => {
+//     next(err);
+//   })
+//  })
 
 router.get('/logout', (req, res) => {
   req.logout();
-  res.redirect('/login');
+  res.redirect('/');
 });
 
 router.get('/new', ensureLogin.ensureLoggedIn(), (req, res) => {
