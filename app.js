@@ -15,7 +15,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('./db/index');
 const passport = require('passport')
 const DB_URL = 'mongodb://localhost/bookshare';
-
+const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/bookshare";
 
 app.use(
   session({
@@ -26,7 +26,7 @@ app.use(
       maxAge: 1000*60*60
     },
     store: MongoStore.create({
-      mongoUrl: 'mongodb+srv://pietro:uRD47kzKCvha829@cluster0.gizfx.mongodb.net/bookshare?retryWrites=true&w=majority'
+      mongoUrl: MONGO_URI
     })
   })
 )
