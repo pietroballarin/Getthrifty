@@ -11,13 +11,20 @@ router.get('/dashboard/new', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   
 });
 
+router.get('/dashboard/edit/:id', (req, res, next) => {
+  Product.findById(req.params.id)
+  .then(product => {
+    res.render('dashboard/edit', {productInfo: product})
+  })
+})
+
 router.post('/dashboard', (req, res, next) => {
-  const {title, description, price, category} = req.body;
+  const {title, description, condition, price} = req.body;
   Product.findByIdAndUpdate(req.params.id, {
     title: title,
     description: description,
-    price: price,
-    $push: {category: category}
+    condition: condition,
+    price: price
   })
   .then(product => {
     res.redirect('dashboard')
@@ -27,14 +34,11 @@ router.post('/dashboard', (req, res, next) => {
   })
 });
 
-router.get('/dashboard/edit', (req, res, next) => {
-  res.render('dashboard/edit')
-})
 
-router.post('/dashboard', (req, res, next) => {
+router.post('/dashboard/:id', (req, res, next) => {
   Product.findByIdAndDelete(req.params.id)
   .then(product => {
-    res.redirect('dashboard')
+    res.redirect('/dashboard')
   })
   .catch(err => {
     next(err);

@@ -4,6 +4,8 @@ const productSchema = new Schema({
   title: String,
   description: String,
   condition: String,
+  userEmail: String,
+  address: String,
   price: Number,
   deliveryOptions: String,
   categories: {

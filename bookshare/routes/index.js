@@ -52,6 +52,7 @@ router.get('/products/search', (req, res, next) => {
       return product.categories.includes(req.query.categories)
       
     })
+    console.log(searchedProd, "Searched PRODUCTS")
   res.render('category.hbs', { productInfo: searchedProd })
   })
   .catch(err => {
