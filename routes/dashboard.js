@@ -6,10 +6,11 @@ const ensureLogin = require('connect-ensure-login');
 
 
 router.get('/dashboard/new', ensureLogin.ensureLoggedIn(), (req, res, next) => {
-    const categories = ['books', 'clothes', 'cars', 'collectibles & antiquities', 'electronics', 'furniture', 'sport', 'bicycles']
+    const categories = ['Select a Category', 'Books', 'Clothes', 'Cars', 'Collectibles & Antiquities', 'Electronics', 'Furniture', 'Sport', 'Bicycles']
     res.render('products/new', { user: req.user, categories})
-  
 });
+
+
 
 router.get('/dashboard/edit/:id', (req, res, next) => {
   Product.findById(req.params.id)
@@ -18,22 +19,23 @@ router.get('/dashboard/edit/:id', (req, res, next) => {
   })
 })
 
-router.post('/dashboard', (req, res, next) => {
-  const {title, description, condition, price} = req.body;
+router.post('/dashboard/:id', (req, res, next) => {
+  const {title, description, condition, price, address, userEmail} = req.body;
   Product.findByIdAndUpdate(req.params.id, {
     title: title,
     description: description,
     condition: condition,
-    price: price
+    price: price,
+    userEmail: userEmail, 
+    address: address,
   })
   .then(product => {
-    res.redirect('dashboard')
+    res.redirect('/dashboard')
   })
   .catch(err => {
     next(err);
   })
 });
-
 
 router.post('/dashboard/:id', (req, res, next) => {
   Product.findByIdAndDelete(req.params.id)
@@ -44,12 +46,5 @@ router.post('/dashboard/:id', (req, res, next) => {
     next(err);
   })
 });
-
-
-
-
-//router.get('/new', (req, res, next) => {
-  //res.render('new')
-//})
 
 module.exports = router;

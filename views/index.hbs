@@ -29,7 +29,7 @@
     <div class="topnav">
         <a class="active" href="/">Home</a>
         <a href="/dashboard">Dashboard</a>
-        <a href="/new">Create A New Ad</a>
+        <a href="/dashboard/new">Create A New Ad</a>
         <a href="/signup">Sign Up</a>
         <a style="float:right" href="/logout">Log Out</a>
         <a style="float:right" href="/login">Log In</a>
@@ -48,7 +48,7 @@
     <h2>{{title}}</h2>
 
     <img src="{{imgPath}}" height="200px" alt="Photo for{{title}}">
-    <a href="/products/show">See details {{title}}</a>
+    <a href="/show/{{_id}}">See details {{title}}</a>
     {{/each}}
 </div>
 

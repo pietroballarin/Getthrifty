@@ -1,14 +1,13 @@
-<h1>Add a new category</h1>
-<form action="/admin-panel" method="POST">
-  <label for="name">Name: </label>
-  <input type="text" name="name" id="name">
-  <button type="submit">Add a new category</button>
-</form>
 
-<div>
+<h1>God Mode</h1>
+<div class="all-products">
     {{#each productInfo}}
     <h2>{{title}}</h2>
-    <a href="/products/show">see</a>
+
+    <img src="{{imgPath}}" height="200px" alt="Photo for{{title}}">
+    <a href="/products/show">See details {{title}}</a>
+    <form action="/admin-panel/{{_id}}" method="POST">
+      <button type="submit">Delete</button>
+      </form>
     {{/each}}
-    
 </div>
