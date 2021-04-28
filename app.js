@@ -26,7 +26,7 @@ app.use(
       maxAge: 1000*60*60
     },
     store: MongoStore.create({
-      mongoUrl: MONGODB_URI
+      mongoUrl: 'mongodb+srv://pietro:uRD47kzKCvha829@cluster0.gizfx.mongodb.net/bookshare?retryWrites=true&w=majority'
     })
   })
 )
