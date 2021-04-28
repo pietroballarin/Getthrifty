@@ -1,12 +1,16 @@
-<h1>BOOKSHARE</h1>
+<div class="header">
+    <h2>Bookshare</h2>
+</div>
 
-<div class="navbar">
+
+{{!-- <div class="navbar">
     <nav>
         <ul>
             <li>
-                <a class="active" href="#home">Home</a>
-            </li>
+                <a class="active" href="/">Home</a>
+            
             <li>
+
                 <a href="/dashboard">Dashboard</a>
             </li>
             <li>
@@ -20,6 +24,32 @@
             </li>
         </ul>
     </nav>
+</div> --}}
+ 
+    <div class="topnav">
+        <a class="active" href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/new">Create A New Ad</a>
+        <a href="/signup">Sign Up</a>
+        <a style="float:right" href="/logout">Log Out</a>
+        <a style="float:right" href="/login">Log In</a>
+    </div>
+
+    <div class="search-form">
+        <form action="/products/search" method="GET">
+        <input type="text" placeholder="Search for anything" id="title" name="q">
+        <button type="submit">Search</button>
+        </form>
+    </div>
+
+
+<div class="all-products">
+    {{#each productInfo}}
+    <h2>{{title}}</h2>
+
+    <img src="{{imgPath}}" height="200px" alt="Photo for{{title}}">
+    <a href="/products/show">See details {{title}}</a>
+    {{/each}}
 </div>
 
 <div id="categoryList">

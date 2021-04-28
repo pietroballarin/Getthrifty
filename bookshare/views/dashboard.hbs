@@ -1,11 +1,17 @@
+<div class="topnav">
+    <a class="active" href="/">Home</a>
+    <a href="/dashboard/new">Create A New Ad</a>
+    {{!-- <a href="/new">Create A New Ad</a> --}}
+</div>
+
 <h1>Hello {{user.fullname}}</h1>
 
-<h2>
+{{!-- <h2>
     <a href="/dashboard/new">Create A New Ad</a>
-</h2>
+</h2> --}}
 
-    
-    <div>
+
+<div>
     {{#each productInfo}}
     <h2>{{title}}</h2>
     <a href="/dashboard/edit/{{_id}}">edit</a>
@@ -14,8 +20,5 @@
       <button type="submit">Delete</button>
       </form>
     {{/each}}
-
-    
-    
 </div>
 
