@@ -8,6 +8,9 @@
         <ul>
             <li>
                 <a class="active" href="/">Home</a>
+            
+            <li>
+
                 <a href="/dashboard">Dashboard</a>
             </li>
             <li>
@@ -50,11 +53,44 @@
 </div>
 
 <div id="categoryList">
-    <form action="/" method="POST">
-        <select name="categories">
-            {{#each categoryList}}
-            <option>{{name}}</option>
+  <form action="/category/" method="GET">
+        <select name="categories" id="categories">
+            {{#each categories}}
+                <option value="{{this}}">{{this}}</option>
             {{/each}}
         </select>
-    </form>
+    <button type="submit">Search</button>
+  </form>
 </div>
+
+<div>
+    {{#each productInfo}}
+    <h2>{{title}}</h2>
+
+    <img src="{{imgPath}}" height="200px" alt="Photo for{{title}}">
+    {{/each}}
+
+    <a href="/products/show">see</a>
+    {{!-- {{/each}} --}}
+    
+</div>
+<div>
+<form action="/" method="GET">
+    <input type="text" id="title" name="q">
+    <button type="submit">Search</button>
+</form>
+</div>
+
+
+
+
+{{!-- <div>
+  <h2>
+    <a href="/google">Login with Google</a>
+  </h2>
+</div> --}}
+
+<h2>
+    <a href="/new">Create A New Ad</a>
+</h2>
+
