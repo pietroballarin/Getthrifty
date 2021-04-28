@@ -1,5 +1,5 @@
 {{#with productInfo}}
-<form action="/dashboard/edit/{{_id}}" method="POST" enctype="multipart/form-data">
+<form action="/dashboard/{{_id}}" method="POST" enctype="multipart/form-data">
   <label for="title">Title:</label>
   <input type="text" name="title" id="title" value="{{title}}">
   <br>
@@ -8,6 +8,12 @@
   <br>
    <label for="condition">Condition:</label>
   <input type="text" name="condition" id="condition" value="{{condition}}">
+  <br>
+  <label for="userEmail">Email:</label>
+  <input type="text" id="userEmail" name="userEmail" value="{{userEmail}}">
+  <br>
+   <label for="address">Address:</label>
+  <input type="text" id="address" name="address" value="{{address}}">
   <br>
   <label for="price">Price (EUR):</label>
   <input type="number" name="price" id="price" value="{{price}}">
@@ -20,11 +26,13 @@
       <option value="{{this}}">{{this}}</option>
     {{/each}}
   </select>
-  
   <br>
-  {{!-- <label for="photo">Photo: </label>
-  <input type="file" name="photo" id="{{photo}}"> --}}
+  <label for="photo">Photo: </label>
+  <input type="file" name="photo" id="photo">
 
   <button type="submit">Submit</button>
 </form> 
 
+{{#if message}}
+<h1>{{message}}</h1>
+{{/if}}
