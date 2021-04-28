@@ -20,7 +20,7 @@ router.post('/dashboard', (req, res, next) => {
     title: title,
     description: description,
     price: price,
-    category: category
+    $push: {category: category}
   })
   .then(product => {
     res.redirect('dashboard')
@@ -35,7 +35,7 @@ router.get('/dashboard/edit', (req, res, next) => {
 })
 
 router.post('/dashboard', (req, res, next) => {
-  Product.findByIdAndUpdate(req.params.id)
+  Product.findByIdAndDelete(req.params.id)
   .then(product => {
     res.redirect('dashboard')
   })

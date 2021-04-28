@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const User = require('../models/User.model');
+const Product = require("../models/Product");
 const passport = require('passport');
 const ensureLogin = require('connect-ensure-login');
 
@@ -24,12 +25,16 @@ router.post('/login', passport.authenticate('local', {
 router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res) => {
   Product.find()
     res.render('dashboard', { user: req.user });
-    // console.log(req.user)
 })
 
 router.get('/admin-panel', checkAdmin('admin'), (req, res) => {
-    res.render('admin-panel', { user: req.user });
-    // console.log(req.user)
+  Product.find()
+   .then(products => {
+    res.render('admin-panel', { user: req.user, productInfo: products });
+  })
+  .catch(err => {
+    next(err);
+  })
 })
 
 module.exports = router;

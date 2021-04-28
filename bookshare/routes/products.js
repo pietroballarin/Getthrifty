@@ -12,8 +12,9 @@ router.get('/products/new', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     })
   });
 
-router.post('/', (req, res) => {
-  console.log(req.session.passport.user, "USER")
+router.post('/', (req, res, next) => {
+  Category.find()
+  .populate('categories')
   const { title, description, condition, price, categories, creator} = req.body;
   Product.create({
     title: title,
@@ -25,7 +26,7 @@ router.post('/', (req, res) => {
   })
   
     .then(productAdd => {
-      
+
         res.redirect('/')
     })    
 });
