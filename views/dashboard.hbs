@@ -1,24 +1,16 @@
 <div class="topnav">
     <a class="active" href="/">Home</a>
     <a href="/dashboard/new">Create A New Ad</a>
-    {{!-- <a href="/new">Create A New Ad</a> --}}
 </div>
 
 <h1>Hello {{user.fullname}}</h1>
 
-{{!-- <h2>
-    <a href="/dashboard/new">Create A New Ad</a>
-</h2> --}}
-
-
-<div>
+<div class="product-card">
     {{#each productInfo}}
     <h2>{{title}}</h2>
     <a href="/dashboard/edit/{{_id}}">edit</a>
-
-   <form action="/dashboard/{{_id}}" method="POST">
-      <button type="submit">Delete</button>
-      </form>
+    <form action="/dashboard/{{_id}}" method="POST">
+        <button type="submit">Delete</button>
+    </form>
     {{/each}}
 </div>
-

@@ -1,5 +1,5 @@
 body {
-  padding: 25px 200px;
+  padding: 5px 200px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -8,74 +8,147 @@ h1 {
 }
 
 h2 {
-  color: green;
+  color: red;
 }
 
+/*header*/
 .header {
-  background-color: #f1f1f1;
-  padding: 30px;
+  background-color: rgb(243, 243, 105);
+  padding: 0;
+  margin: 0;
   text-align: center;
 }
+.header img {
+  float: left;
+  height: 60px;
+  width: 70px;
+  margin: 0;
+  padding: 0;
+}
+.header-title {
+  color: rgb(68, 66, 66);
+  font-size: 50px;
+  margin: 0;
+  padding: 0;
+}
 
+/*sticky-nav-search-bar*/
+.sticky-nav-searchbar {
+  position: -webkit-sticky;
+  position: sticky;
+  /* overflow: auto; */
+  /* position: fixed; */
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  border: solid yellowgreen;
+}
 .topnav {
   background-color: rgb(47, 105, 76);
   overflow: hidden;
-  /* position: fixed; */
+  padding: 0;
+  margin: 0;
 }
-
 .topnav a {
   float: left;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px 16px;
+  padding: 10px 10px;
   text-decoration: none;
   font-size: 17px;
 }
-
 .topnav a.active {
   background-color: #4CAF50;
   color: white;
 }
-
 .topnav a:hover {
   background-color: #4CAF50;
   color: white;
 }
 
-/*Login/ Sign Up form*/
-.signUp form {
-  width: 50%;
-  height: 50%;
-  /* padding: px; */
-  margin: auto;
+/*search form for products*/
+.search-form form {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  background-color: #cae8ca;
+  overflow: hidden;
+}
+.search-form button {
+  color: rgb(68, 66, 66);
+  text-align: center;
+}
+.search-form button:hover{
+  color: white;
+  background-color:  rgb(68, 66, 66);
 }
 
-/* form  {
-border: 5px solid rgb(230, 229, 174);
-  width: 50%;
-  height: 50%;
-padding: 10px;
-  margin: auto;
-  font-family: Arial;
-} */
-
-button {
-  background-color: #4CAF50;
-  color: rgb(49, 58, 55);
-  padding: 3px 3px;
-  padding: 15px 15px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  font-size: 20px;
+/*categoryList from index.hbs */
+/* .categoryList { */
+  /* border: solid purple; */
+  /* display: flex;
+  flex-wrap: wrap; */
+/* } */
+.category-search {
+  border: red;
+}
+.categoryList button {
+  margin: 0;
+  padding: 0;
+  color: red;
 }
 
+/*products on index.hbs*/
+.all-products {
+  display: flex;
+  flex-wrap: wrap;
 
-button:hover {
-  opacity: 6;
+  /* border: solid red; */
+   justify-content: space-around;
+}
+.img-product {
+  border: solid rgb(243, 243, 105);
+  border-radius: 10px;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 5px;
+}
+.img-product img {
+  width: 180px;
+  height: 150px;
+  padding: 5px;
+}
+.product-title {
+  font-size: 18px;
+  color: rgb(68, 66, 66);
+  margin: 0;
+  padding: 0px 10px 5px 5px;
+}
+.price-tag {
+  font-size: 12px;
+  margin: 0;
+  padding: 0px 10px 5px 5px;
+  color:rgb(68, 66, 66);
+}
+.img-product a{
+  padding: 0px 10px 5px 5px;
 }
 
+/* dashboard.hbs */
+.product-card {
+  border: solid black;
+}
+
+/*login*/
+.loginPage {
+  text-align: center;
+}
+.login-google {
+  text-align: center;
+}
 input[type=text],
 input[type=password] {
   width: 100%;
@@ -84,24 +157,20 @@ input[type=password] {
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
-
+}
+.signUp form {
+  width: 50%;
+  height: 50%;
 }
 
-.loginPage {
-  text-align: center;
-}
-
-.login-google {
-  text-align: center;
-}
-
-.search-form form {
-  padding-right: 50%;
-  /* position: */
-  display: flex;
-}
-
-.search-form button {
-  color: white;
-  text-align: center;
+button {
+  background-color: #4CAF50;
+  color: rgb(68, 66, 66);
+  padding: 3px 3px;
+  padding: 15px 15px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 20px;
 }
