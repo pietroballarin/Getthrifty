@@ -6,12 +6,10 @@ const ensureLogin = require('connect-ensure-login');
 
 /* GET home page */
 router.get('/', (req, res, next) => {
+  const categories = ['books', 'clothes', 'cars', 'collectibles & antiquities', 'electronics', 'furniture', 'sport', 'bicycles']
   Product.find()
-   .then(products => {
-  Category.find()
-  .then(categories => {
-    res.render('index', {categoryList: categories, productInfo: products})
-  })
+   .then(products=> {
+    res.render('index', {categories, productInfo: products}) 
 })
   .catch(err => {
     next(err);
@@ -29,20 +27,37 @@ router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   })
 })
 
-module.exports = router;
+router.get('/products/search', (req, res, next) => {
+  const { title } = req.query;
+  console.log(req.query)
+  Product.find()
+  .then(products => { 
+    // console.log(products, "PRODUCTS")
+    const searchedProd = products.filter(product => {
+      return product.title.includes(req.query.q)
+    })
+    console.log(searchedProd)
+  res.render('index', { productInfo: searchedProd })
+  })
+  .catch(err => {
+    next(err);
+  })
+ })
 
-// router.get('/products/search', (req, res, next) => {
-//   const { title } = req.query;
-//   console.log(req.query)
-//   Product.find({$text: {$search: title}})
-//   .then(products => { 
-    
-//   res.render('products', { productInfo: products })
-//   })
-//   .catch(err => {
-//     next(err);
-//   })
-//  })
+ router.get('/category', (req, res, next) => {
+  const { categories } = req.query.categories;
+  Product.find()
+  .then(products => { 
+    const searchedProd = products.filter(product => {
+      return product.categories.includes(req.query.categories)
+      
+    })
+  res.render('category.hbs', { productInfo: searchedProd })
+  })
+  .catch(err => {
+    next(err);
+  })
+ })
 
 router.get('/logout', (req, res) => {
   req.logout();

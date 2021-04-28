@@ -13,14 +13,10 @@
   <br>
   <select name="categories">
   {{#each categories}}
-      <option value="{{_id}}">{{name}}</option>
+      <option value="{{this}}">{{this}}</option>
     {{/each}}
   </select>
-  {{!-- <select name="categories">
-  {{#each categoryList}}
-  <option>{{name}}</option>
-  {{/each}}
-  </select> --}}
+  
   <br>
   <label for="photo">Photo: </label>
   <input type="file" name="photo" id="photo">

@@ -6,13 +6,9 @@ const ensureLogin = require('connect-ensure-login');
 
 
 router.get('/dashboard/new', ensureLogin.ensureLoggedIn(), (req, res, next) => {
-Category.find({})
-  .then(categories => {
-    res.render('products/new', { user: req.user, categoryList: categories})
-  })
-  .catch(err => {
-    next(err);
-  })
+    const categories = ['books', 'clothes', 'cars', 'collectibles & antiquities', 'electronics', 'furniture', 'sport', 'bicycles']
+    res.render('products/new', { user: req.user, categories})
+  
 });
 
 router.post('/dashboard', (req, res, next) => {
