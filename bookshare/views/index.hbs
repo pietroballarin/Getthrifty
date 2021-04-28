@@ -1,9 +1,11 @@
 <h1>BOOKSHARE</h1>
-<div>
+
+<div class="navbar">
     <nav>
         <ul>
             <li>
-                <a href="/dashboard">Dashboard</a>
+                <a class="active" href="#home">Home</a>
+                {{!-- <a href="/dashboard">Dashboard</a> --}}
             </li>
             <li>
                 <a href="/signup">Sign Up</a>
@@ -18,7 +20,7 @@
     </nav>
 </div>
 
-<div>
+<div id="categoryList">
     <form action="/" method="POST">
         <select name="categories">
         {{#each categoryList}}
@@ -34,8 +36,5 @@
     {{/each}}
     <a href="/products/show">see</a>
 </div>
-{{!-- <div>
-  <h2>
-    <a href="/google">Login with Google</a>
-  </h2>
-</div> --}}
+
+
