@@ -4,9 +4,14 @@
   <input type="text" name="username" placeholder="Enter Username" id="username">
   <label for="password"><b>Password</b></label>
   <input type="password" name="password" placeholder="Enter Password" id="password">
-  <button class='login' type="submit">LOGIN</button>
+  <button class='login' type="submit">Login</button>
 </form>
 {{#if message}}
   <p>{{message}}</p>
 {{/if}}
+</div>
+<div class="login-google">
+  <h2>
+    <a href="/google"><button class='login'>Login with Google</button></a>
+  </h2>
 </div>

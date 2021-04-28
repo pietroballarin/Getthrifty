@@ -9,7 +9,7 @@ const productSchema = new Schema({
   categories: [{type: Schema.Types.ObjectId, ref: 'category'}],
   imgName: String,
   imgPath: String,
-  publicId: String
+  publicId: String,
   creator: {type: Schema.Types.ObjectId, ref: 'user'}
 })
 

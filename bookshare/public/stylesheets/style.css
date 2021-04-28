@@ -1,32 +1,66 @@
 body {
-  padding: 50px;
+  padding: 25px 200px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00b7ff;
+h1 {
+  color: rgb(55, 0, 255);
 }
 
-h1 {
-  color: 15px;
+h2 {
+  color: green;
+}
+
+.header {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+}
+
+.topnav {
+  background-color: rgb(47, 105, 76);
+  overflow: hidden;
+  /* position: fixed; */
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav a:hover {
+  background-color: #4CAF50;
+  color: white;
 }
 
 /*Login/ Sign Up form*/
+.signUp form {
+  width: 50%;
+  height: 50%;
+  /* padding: px; */
+  margin: auto;
+}
 
-form {
-  /* border: 5px solid rgb(230, 229, 174); */
+/* form  {
+border: 5px solid rgb(230, 229, 174);
   width: 50%;
   height: 50%;
 padding: 10px;
   margin: auto;
   font-family: Arial;
-}
-h1 {
-  color: rgb(55, 0, 255);
-}
+} */
 
 button {
-  background-color: #5ec46f;
+  background-color: #4CAF50;
   color: rgb(49, 58, 55);
   padding: 3px 3px;
   padding: 15px 15px;
@@ -36,10 +70,14 @@ button {
   width: 100%;
   font-size: 20px;
 }
+
+
 button:hover {
-  opacity: 0.5;
+  opacity: 6;
 }
-input[type=text], input[type=password] {
+
+input[type=text],
+input[type=password] {
   width: 100%;
   padding: 15px 15px;
   margin: 10px 0;
@@ -47,4 +85,23 @@ input[type=text], input[type=password] {
   border: 1px solid #ccc;
   box-sizing: border-box;
 
+}
+
+.loginPage {
+  text-align: center;
+}
+
+.login-google {
+  text-align: center;
+}
+
+.search-form form {
+  padding-right: 50%;
+  /* position: */
+  display: flex;
+}
+
+.search-form button {
+  color: white;
+  text-align: center;
 }
