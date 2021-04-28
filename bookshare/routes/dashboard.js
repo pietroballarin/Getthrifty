@@ -4,6 +4,7 @@ const Category = require('../models/Category');
 const Product = require("../models/Product");
 const ensureLogin = require('connect-ensure-login');
 
+
 router.get('/dashboard/new', ensureLogin.ensureLoggedIn(), (req, res, next) => {
 Category.find({})
   .then(categories => {
@@ -46,8 +47,9 @@ router.post('/dashboard', (req, res, next) => {
 
 
 
-router.get('/new', (req, res, next) => {
-  res.render('new')
-})
+
+//router.get('/new', (req, res, next) => {
+  //res.render('new')
+//})
 
 module.exports = router;

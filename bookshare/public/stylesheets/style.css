@@ -10,3 +10,41 @@ a {
 h1 {
   color: 15px;
 }
+
+/*Login/ Sign Up form*/
+
+form {
+  /* border: 5px solid rgb(230, 229, 174); */
+  width: 50%;
+  height: 50%;
+padding: 10px;
+  margin: auto;
+  font-family: Arial;
+}
+h1 {
+  color: rgb(55, 0, 255);
+}
+
+button {
+  background-color: #5ec46f;
+  color: rgb(49, 58, 55);
+  padding: 3px 3px;
+  padding: 15px 15px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 20px;
+}
+button:hover {
+  opacity: 0.5;
+}
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px 15px;
+  margin: 10px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+
+}
