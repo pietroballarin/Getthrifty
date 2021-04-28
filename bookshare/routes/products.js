@@ -3,6 +3,7 @@ const Product = require("../models/Product");
 const Category = require('../models/Category');
 const User = require("../models/User.model");
 const router = express.Router();
+const ensureLogin = require('connect-ensure-login');
 const { uploader, cloudinary } = require("../config/cloudinary");
 
 
@@ -18,7 +19,7 @@ router.post('/', uploader.single('photo'), (req, res) => {
       condition: condition,
       price: price,
       categories: categories,
-      creator: creator,
+      creator: req.session.passport.user,
       imgPath: req.file.path
     })
       .then(productAdd => {
@@ -35,7 +36,7 @@ router.post('/', uploader.single('photo'), (req, res) => {
       condition: condition,
       price: price,
       categories: categories,
-      creator: creator 
+      creator: req.session.passport.user
     })
       .then(productAdd => {
         console.log('pathNoImage', productAdd)
@@ -56,5 +57,13 @@ router.post('/', uploader.single('photo'), (req, res) => {
 // router.get('/add', (req, res) => {
 //   res.render('products/new.hbs')
 // })
+
+router.get('/products/new', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  Category.find({})
+    .then(categories => {
+      res.render('products/new', { user: req.user, categoryList: categories})
+    })
+  });
+
 
 module.exports = router;
