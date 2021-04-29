@@ -97,9 +97,6 @@ app.use("/", dashboard);
 const admin = require("./routes/adminPanel");
 app.use("/", admin);
 
-const products = require("./routes/products");
-app.use("/", products);
-
 const category = require("./routes/category");
 app.use("/", category);
 
