@@ -1,16 +1,21 @@
 <div class="topnav">
     <a class="active" href="/">Home</a>
-    <a href="/dashboard/new">Create A New Ad</a>
+    <a href="/dashboard/new">Add product</a>
+     <a style="float:right" href="/logout">Log Out</a>
 </div>
 
 <h1>Hello {{user.fullname}}</h1>
 
-<div class="product-card">
+<div class="dashboard-users">
     {{#each productInfo}}
-    <h2>{{title}}</h2>
-    <a href="/dashboard/edit/{{_id}}">edit</a>
+    <div class="edit-dashboard">
+    <p class="title-product">{{title}}</p>
+    <img src="{{imgPath}}" alt="Photo for{{title}}">
+    <h3 class="price-tag">EUR {{price}}</h3>
     <form action="/dashboard/{{_id}}" method="POST">
-        <button type="submit">Delete</button>
+        <button class="delete-product-btn" type="submit">Delete</button>
+        <button class="edit-product-btn" type="submit"><a href="/dashboard/edit/{{_id}}">Edit</a></button>
     </form>
+    </div>
     {{/each}}
 </div>
