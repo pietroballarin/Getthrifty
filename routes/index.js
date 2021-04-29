@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const Category = require('../models/Category');
 const Product = require("../models/Product");
 const User = require("../models/User.model");
 const ensureLogin = require('connect-ensure-login');
@@ -21,7 +20,6 @@ router.get('/show/:id', (req, res, next) => {
   .then(product => {
       console.log(product, "AAAAA")
       res.render('show.hbs', {productInfo: product})
-      
   })
 })
 
@@ -36,17 +34,17 @@ router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   })
 })
 
-router.get('/products/search', (req, res, next) => {
+router.get('/', (req, res, next) => {
   const { title } = req.query;
   console.log(req.query)
   Product.find()
   .then(products => { 
     // console.log(products, "PRODUCTS")
     const searchedProd = products.filter(product => {
-      return product.title.includes(req.query.q)
+      return product.title.toLowerCase().includes(req.query.q.toLowerCase())
     })
-    console.log(searchedProd)
-  res.render('index', { productInfo: searchedProd })
+    console.log(searchedProd, 'aAAA')
+  res.render('index.hbs', { productInfo: searchedProd })
   })
   .catch(err => {
     next(err);
@@ -80,4 +78,3 @@ router.get('/', ensureLogin.ensureLoggedIn(), (req, res, next) => {
 });
 
 module.exports = router;
-
