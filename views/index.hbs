@@ -4,7 +4,7 @@
     <a href="/dashboard">My products</a>
     <a href="/dashboard/new">Add a product</a>
     <a style="float:right" href="/signup">Sign Up</a>
-    <a style="float:right" href="/login">Log In</a>
+    <a style="float:right" href="/login">Login</a>
 </div>
 
 <div class="search-form">
@@ -35,8 +35,9 @@
         <img src="{{imgPath}}" alt="Photo for{{title}}">
         <h2 class="product-title">{{title}}</h2>
         <h3 class="price-tag">EUR {{price}}</h3>
-        <a href="/show/{{_id}}">See details</a>
+        <a href="/show/{{_id}}"><button class="more-details-btn">More details</button></a>
     </div>
     {{/each}}
 </div>
-<a style=";" href="/logout">Log Out</a>
+<a style=";" href="/logout"><button class="edit-delete-btn">Log out</button>
+

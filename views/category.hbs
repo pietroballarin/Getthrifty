@@ -1,8 +1,17 @@
-<div>
+<div class="topnav">
+    <a class="active" href="/">Home</a>
+    <a style="float:right" href="/signup">Sign Up</a>
+    <a style="float:right" href="/login">Login</a>
+</div>
+
+
+<div class="category-details">
     {{#each productInfo}}
-    <h2>{{title}}</h2>
-
-    <img src="{{imgPath}}" height="200px" alt="Photo for{{title}}">
+    <div class="img-product">
+    <p>{{title}}</p>
+<img src="{{imgPath}}" height="150px" alt="Photo for{{title}}">
+<br>
+<a href="/show/{{_id}}"></a><button class="edit-delete-btn">More details</button>
+</div>
     {{/each}}
-
 </div>

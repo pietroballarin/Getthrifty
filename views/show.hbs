@@ -1,19 +1,20 @@
 <div class="topnav">
     <a class="active" href="/">Home</a>
     <a href="/dashboard">My products</a>
-    <a href="/dashboard/new">Add a product</a>
     <a style="float:right" href="/signup">Sign Up</a>
-    <a style="float:right" href="/login">Log In</a>
+    <a style="float:right" href="/login">Login</a>
 </div>
 
 <div class="show-card">
     {{#with productInfo}}
     <h2>{{title}}</h2>
-    <img src="{{imgPath}}" height="200px" alt="Photo for{{title}}">
-    <h4>Price:{{price}}€</h4>
-    <p>Description: {{description}}</p>
-    <h4>Address: {{address}}</h4>
-    <a href="/dashboard/email-form/{{_id}}" class="button">Contact user</a>
+    <img src="{{imgPath}}"  alt="Photo for{{title}}">
+    <div class="description">
+    <p><b>Price:</b> {{price}} EUR</p>
+    <p><b>Description:</b> {{description}}</p>
+    <p><b>Address:</b> {{address}}</p>
+    </div>
+    <a href="/dashboard/email-form/{{_id}}" ></a><button class="edit-delete-btn">Contact user</button>
     {{/with}}
 </div>
 
