@@ -1,7 +1,6 @@
 body {
   padding: 5px 200px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: rgb(255, 254, 239);
 }
 
 h1 {
@@ -50,6 +49,7 @@ h2 {
 .topnav {
   background-color: rgb(47, 105, 76);
   overflow: hidden;
+  width: 100%;
   padding: 0;
   margin: 0;
 }
@@ -91,6 +91,10 @@ h2 {
   color: white;
   background-color: rgb(68, 66, 66);
 }
+/* dashboard.hbs */
+.dashboard-users {
+  border: solid black;
+}
 
 /*categoryList from index.hbs */
 /* .categoryList { */
@@ -109,10 +113,11 @@ h2 {
 }
 
 /*products on index.hbs*/
-.all-products {
+.all-products, .dashboard-users  {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  border:solid rgb(55, 0, 255);
 }
 
 .img-product {
@@ -152,8 +157,37 @@ h2 {
 
 /* dashboard.hbs */
 .product-card {
-  border: solid black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
+.edit-dashboard  {
+  border: solid rgb(243, 243, 105);
+  border-radius: 10px;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.edit-dashboard img {
+  width: 150px;
+  height: 100px;
+  padding: 0px;
+}
+.delete-product-btn {
+  color: inherit;
+  background-color: rgb(47, 105, 76);
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.delete-product-btn a:hover {
+  background-color:  rgb(243, 243, 105);
+  color: rgb(68, 66, 66);
+}
+
 
 /*login*/
 .login-page {
@@ -166,6 +200,13 @@ h2 {
 
   border: solid rgb(68, 66, 66);
   border-radius: 10px;
+}
+.login-title {
+  color: rgb(68, 66, 66);
+  font-size: 50px;
+  text-align: left;
+  margin: 0;
+  padding: 0;
 }
 
 .alert {
@@ -228,3 +269,29 @@ box-sizing: border-box;
   align-content: space-around;
 }
 
+/*style add product form*/
+
+.add-product input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+.add-product input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-product input[type=submit]:hover {
+  background-color: rgb(243, 243, 105);
+  color:rgb(68, 66, 66)
+}
