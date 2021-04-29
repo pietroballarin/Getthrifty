@@ -22,11 +22,6 @@ router.post('/login', passport.authenticate('local', {
     passReqToCallback: true,
 }))
 
-router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res) => {
-  Product.find()
-    res.render('dashboard', { user: req.user });
-})
-
 router.get('/admin-panel', checkAdmin('admin'), (req, res) => {
   Product.find()
    .then(products => {

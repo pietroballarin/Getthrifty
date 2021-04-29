@@ -97,11 +97,11 @@ app.use("/", dashboard);
 const admin = require("./routes/adminPanel");
 app.use("/", admin);
 
-const products = require("./routes/products");
-app.use("/", products);
-
 const category = require("./routes/category");
 app.use("/", category);
+
+const show = require("./routes/show");
+app.use("/", show);
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes

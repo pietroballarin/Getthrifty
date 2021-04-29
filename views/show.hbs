@@ -1,5 +1,13 @@
-<div>
-    {{#each productInfo}}
+
+<div class="all-products">
+    {{#with productInfo}}
     <h2>{{title}}</h2>
-    {{/each}}
+    <p>{{description}}</p>
+    <h4>{{address}}</h4>
+    <a href="/dashboard/email-form/{{_id}}" class="button">Contact user</a>
+    <h4>{{price}}€</h4>
+    
+
+    <img src="{{imgPath}}" height="200px" alt="Photo for{{title}}">
+    {{/with}}
 </div>

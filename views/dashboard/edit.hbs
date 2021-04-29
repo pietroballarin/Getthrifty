@@ -14,6 +14,12 @@
    <label for="condition">Condition:</label>
   <input type="text" name="condition" id="condition" value="{{condition}}">
   <br>
+  <label for="userEmail">Email:</label>
+  <input type="text" id="userEmail" name="userEmail" value="{{userEmail}}">
+  <br>
+   <label for="address">Address:</label>
+  <input type="text" id="address" name="address" value="{{address}}">
+  <br>
   <label for="price">Price (EUR):</label>
   <input type="number" name="price" id="price" value="{{price}}">
   <br>
@@ -29,6 +35,10 @@
   <label for="photo">Photo: </label>
   <input type="file" name="photo" id="{{photo}}">
 
+
   <button type="submit">Submit</button>
 </form> 
 
+{{#if message}}
+<h1>{{message}}</h1>
+{{/if}}

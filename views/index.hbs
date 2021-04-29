@@ -1,3 +1,4 @@
+
 <div class="topnav">
     <a class="active" href="/">Home</a>
     <a href="/dashboard">My products</a>
@@ -11,20 +12,21 @@
         <input type="text" placeholder="Search for products" id="title" name="q">
         <button type="submit">Find more</button>
     </form>
-</div>
 
 <div class="categoryList">
     <div class="category-search">
-        <form action="/category/" method="GET">
+        <form action="/category" method="GET">
             <label for="categories">Find a category:</label>
             <select name="categories" id="categories">
                 {{#each categories}}
                 <option value="{{this}}">{{this}}</option>
                 {{/each}}
             </select>
+            <button type="submit">Search</button>
         </form>
+        
     </div>
-    <button type="submit">Search</button>
+    
 </div>
 
 <div class="all-products">
@@ -33,7 +35,7 @@
         <img src="{{imgPath}}" alt="Photo for{{title}}">
         <h2 class="product-title">{{title}}</h2>
         <h3 class="price-tag">EUR {{price}}</h3>
-        <a href="/products/show">See details</a>
+        <a href="/show/{{_id}}">See details</a>
     </div>
     {{/each}}
 </div>
