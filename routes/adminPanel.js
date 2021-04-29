@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const User = require('../models/User.model');
-const Category = require('../models/Category');
 const Product = require("../models/Product");
 const ensureLogin = require('connect-ensure-login');
 
