@@ -8,10 +8,11 @@
 </div>
 
 <div class="search-form">
-    <form action="/products/search" method="GET">
+    <form action="/" method="GET">
         <input type="text" placeholder="Search for products" id="title" name="q">
         <button type="submit">Find more</button>
     </form>
+</div>
 
 <div class="categoryList">
     <div class="category-search">
@@ -26,7 +27,7 @@
         </form>
         
     </div>
-</div>
+
 
 <div class="all-products">
     {{#each productInfo}}

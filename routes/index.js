@@ -21,7 +21,6 @@ router.get('/', (req, res, next) => {
 router.get('/show/:id', (req, res, next) => {
   Product.findById(req.params.id)
     .then(product => {
-      console.log(product, "AAAAA")
       res.render('show.hbs', {
         productInfo: product
       })
@@ -47,12 +46,12 @@ router.get('/search', (req, res, next) => {
   const {
     title
   } = req.query;
+  console.log(req.query)
   Product.find()
     .then(products => {
       const searchedProd = products.filter(product => {
-        return product.title === req.query.q;
+        return product.title.includes(req.query.q);
       })
-      console.log(searchedProd, 'aAAA')
       res.render('index.hbs', {
         productInfo: searchedProd
       })
@@ -63,8 +62,6 @@ router.get('/search', (req, res, next) => {
 })
 
 router.get('/category', (req, res, next) => {
-  console.log(req.query, "QUERY")
-  console.log(req.body)
   Product.find({
       categories: req.query.categories
     })

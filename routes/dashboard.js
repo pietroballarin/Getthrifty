@@ -28,6 +28,9 @@ router.post('/dashboard/new', uploader.single('photo'), (req, res) => {
   if (!req.body.userEmail.includes('@')) {
     res.render('dashboard/new', {message: 'Please provide a valid email address'})
   }
+  if (req.body.categories === categories[0]) {
+    res.render('dashboard/new', {message: 'Please select a category'})
+  }
   else if (req.file.path) {
     Product.create({
       title: title,
