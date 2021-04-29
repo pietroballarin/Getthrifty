@@ -11,12 +11,12 @@
     <label for="password"><b>Password</b></label>
     <input type="password" name="password" placeholder="Enter Password" id="password">
     <button class='login' type="submit">Login</button>
+    {{#if errorMessage}}
     <div class="alert">
-      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>Please fill in your username and password!
+      <span class="closebtn">{{errorMessage}}</span>
     </div>
-    {{#if message}}
-    <p>{{message}}</p>
     {{/if}}
+    
 
     <button class='google-login' type="submit"><a
         href="https://accounts.google.com/servicelogin/signinchooser?flowName=GlifWebSignIn&flowEntry=ServiceLogin">Login

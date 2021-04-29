@@ -23,7 +23,10 @@ router.get('/dashboard/edit/:id', (req, res, next) => {
 router.post('/dashboard/new', uploader.single('photo'), (req, res) => {
   const { title, description, condition, price, categories, creator, userEmail, address} = req.body;
   if (req.body.title.length < 10) {
-    res.render('dashboard/new', {message:'error'}) 
+    res.render('dashboard/new', {message:'The title should be at least 10 characters long'}) 
+  }
+  if (!req.body.userEmail.includes('@')) {
+    res.render('dashboard/new', {message: 'Please provide a valid email address'})
   }
   else if (req.file.path) {
     Product.create({

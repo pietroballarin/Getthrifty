@@ -9,12 +9,12 @@ router.get('/signup', (req, res, next) => {
 
 router.post('/signup', (req, res, next) => {
   const {username, fullname, email, password} = req.body;
-  if (password.length < 4) {
-    res.render('signup', {message: 'Password too short'})
+  if (password.length < 8) {
+    res.render('signup', {message: 'Your password is too short'})
     return;
   }
   if (username.length < 3) {
-    res.render('signup', {message: 'Username must be at least 3 characters long'})
+    res.render('signup', {message: 'The username must be at least 3 characters long'})
     return;
   }
   if (fullname.length < 3) {
@@ -28,7 +28,7 @@ router.post('/signup', (req, res, next) => {
   User.findOne({username: username})
   .then(user => {
     if(user !== null) {
-      res.render('signup', {message: 'Username already in use'})
+      res.render('signup', {message: 'Username already taken'})
       return;
     } else {
       const salt = bcrypt.genSaltSync();

@@ -6,6 +6,7 @@ const hbs = require("hbs");
 const bcrypt = require('bcrypt')
 const app = express();
 const User = require('./models/User.model');
+const flash = require('connect-flash');
 
 require("./config")(app);
 
@@ -16,6 +17,8 @@ const mongoose = require('./db/index');
 const passport = require('passport')
 const DB_URL = 'mongodb://localhost/bookshare';
 const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/bookshare";
+
+
 
 app.use(
   session({
@@ -49,7 +52,7 @@ passport.use(
   new LocalStrategy(
     {
       usernameField: 'username',
-      passwordField: 'password' 
+      passwordField: 'password', 
     },
     (username, password, done) => {
       User.findOne({username})
@@ -82,6 +85,9 @@ const capitalized = (string) =>
 app.locals.title = `${capitalized(projectName)} created with Ironlauncher`;
 
 // 👇 Start handling routes here
+
+app.use(flash());
+
 const index = require("./routes/index");
 app.use("/", index);
 
