@@ -1,3 +1,9 @@
+
+<div class="topnav">
+    <a class="active" href="/">Home</a>
+    <a href="/dashboard">My products</a>
+    <a href="/new">Add a product</a>
+</div>
 {{#with productInfo}}
 <form action="/dashboard/edit/{{_id}}" method="POST" enctype="multipart/form-data">
   <label for="title">Title:</label>
@@ -18,21 +24,19 @@
   <label for="price">Price (EUR):</label>
   <input type="number" name="price" id="price" value="{{price}}">
   <br>
-
+  
 {{/with}}
 
-<select name="categories">
-  {{#each categories}}
-      <option value="{{this}}">{{this}}</option>
+ <label for="categories">Choose a category:</label>
+  <select name="categories">
+    {{#each categories}}
+    <option value="{{this}}">{{this}}</option>
     {{/each}}
   </select>
   <br>
   <label for="photo">Photo: </label>
-  <input type="file" name="photo" id="photo">
+  <input type="file" name="photo" id="{{photo}}">
 
   <button type="submit">Submit</button>
 </form> 
 
-{{#if message}}
-<h1>{{message}}</h1>
-{{/if}}
