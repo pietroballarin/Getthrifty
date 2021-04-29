@@ -8,6 +8,12 @@
    <label for="condition">Condition:</label>
   <input type="text" id="condition" name="condition">
   <br>
+  <label for="userEmail">Email:</label>
+  <input type="text" id="userEmail" name="userEmail">
+  <br>
+   <label for="address">Address:</label>
+  <input type="text" id="address" name="address">
+  <br>
   <label for="price">Price (EUR):</label>
   <input type="number" id="price" name="price">
   <br>
@@ -16,11 +22,5 @@
       <option value="{{_id}}">{{name}}</option>
     {{/each}}
   </select>
-  {{!-- <select name="categories">
-  {{#each categoryList}}
-  <option>{{name}}</option>
-  {{/each}}
-  </select> --}}
-
   <button type="submit">Submit</button>
   </form> 

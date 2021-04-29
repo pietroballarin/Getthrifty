@@ -10,7 +10,7 @@ const productSchema = new Schema({
   deliveryOptions: String,
   categories: {
     type: String,
-    enum: ['books', 'clothes', 'cars', 'collectibles & antiquities', 'electronics', 'furniture', 'sport', 'bicycles']
+    enum: ['Select a Category', 'Books', 'Clothes', 'Cars', 'Collectibles & Antiquities', 'Electronics', 'Furniture', 'Sport', 'Bicycles']
   },
   imgName: String,
   imgPath: String,

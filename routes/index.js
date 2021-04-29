@@ -6,7 +6,7 @@ const ensureLogin = require('connect-ensure-login');
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  const categories = ['books', 'clothes', 'cars', 'collectibles & antiquities', 'electronics', 'furniture', 'sport', 'bicycles']
+  const categories = ['Select a Category', 'Books', 'Clothes', 'Cars', 'Collectibles & Antiquities', 'Electronics', 'Furniture', 'Sport', 'Bicycles']
   Product.find()
    .then(products=> {
     res.render('index', {categories, productInfo: products}) 
@@ -15,6 +15,15 @@ router.get('/', (req, res, next) => {
     next(err);
   })
 });
+
+router.get('/show/:id', (req, res, next) => {
+  Product.findById(req.params.id)
+  .then(product => {
+      console.log(product, "AAAAA")
+      res.render('show.hbs', {productInfo: product})
+      
+  })
+})
 
 router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   const creatorId = req.session.passport.user;
@@ -65,10 +74,10 @@ router.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
-
-router.get('/new', ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render('new')
-})
+router.get('/', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  const categories = ['Select a Category', 'Books', 'Clothes', 'Cars', 'Collectibles & Antiquities', 'Electronics', 'Furniture', 'Sport', 'Bicycles']
+  res.render('products/new', { user: req.user, categories})
+});
 
 module.exports = router;
 

@@ -1,6 +1,4 @@
 const router = require("express").Router();
-const Category = require('../models/Category');
-
-
+const Product = require("../models/Product");
 
 module.exports = router;
