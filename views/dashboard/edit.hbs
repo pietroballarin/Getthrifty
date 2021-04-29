@@ -3,6 +3,8 @@
     <a href="/dashboard">My products</a>
     <a href="/new">Add a product</a>
 </div>
+<h3>Update your product here:</h3>
+<div class="edit-productInfo">
 {{#with productInfo}}
 <form action="/dashboard/edit/{{_id}}" method="POST" enctype="multipart/form-data">
   <label for="title">Title:</label>
@@ -35,10 +37,10 @@
   <label for="photo">Photo: </label>
   <input type="file" name="photo" id="{{photo}}">
 
-
   <button type="submit">Submit</button>
 </form> 
 
 {{#if message}}
 <h1>{{message}}</h1>
 {{/if}}
+</div>
