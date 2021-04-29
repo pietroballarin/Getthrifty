@@ -22,7 +22,10 @@ router.get('/dashboard/edit/:id', (req, res, next) => {
 
 router.post('/dashboard/new', uploader.single('photo'), (req, res) => {
   const { title, description, condition, price, categories, creator, userEmail, address} = req.body;
-  if (req.file.path) {
+  if (req.body.title.length < 10) {
+    res.render('dashboard/new', {message:'error'}) 
+  }
+  else if (req.file.path) {
     Product.create({
       title: title,
       description: description,

@@ -2,21 +2,6 @@
     <img src="/images/logo.png" alt="logo-home">
     <p class="header-title">Getthrifty</h2>
 </div>
-
-<div class="topnav">
-    <a class="active" href="/">Home</a>
-    <a href="/dashboard">Dashboard</a>
-    <a href="/new">Create A New Ad</a>
-    <a href="/signup">Sign Up</a>
-    <a style="float:right" href="/logout">Log Out</a>
-    <a style="float:right" href="/login">Log In</a>
-</div>
-
-<div class="search-form">
-    <form action="/products/search" method="GET">
-        <input type="text" placeholder="Search for products" id="title" name="q">
-        <button type="submit">Find more</button>
-    </form>
  
     <div class="topnav">
         <a class="active" href="/">Home</a>
@@ -28,33 +13,25 @@
     </div>
 
     <div class="search-form">
-        <form action="/" method="GET">
-        <input type="text" placeholder="Search for anything" id="title" name="q">
-        <button type="submit">Search</button>
-        </form>
-    </div>
-
-
-<div class="all-products">
-    {{#each productInfo}}
-    <h2>{{title}}</h2>
-    <img src="{{imgPath}}" height="200px" alt="Photo for{{title}}">
-    <a href="/show/{{_id}}">See details {{title}}</a>
-    {{/each}}
-</div>
+    <form action="/search" method="GET">
+        <input type="text" placeholder="Search for products" id="title" name="q">
+        <button type="submit">Find more</button>
+    </form>
 
 <div class="categoryList">
     <div class="category-search">
-        <form action="/category/" method="GET">
+        <form action="/category" method="GET">
             <label for="categories">Find a category:</label>
             <select name="categories" id="categories">
                 {{#each categories}}
                 <option value="{{this}}">{{this}}</option>
                 {{/each}}
             </select>
+            <button type="submit">Search</button>
         </form>
+        
     </div>
-    <button type="submit">Search</button>
+    
 </div>
 
 <div class="all-products">
@@ -63,7 +40,7 @@
         <img src="{{imgPath}}" alt="Photo for{{title}}">
         <h2 class="product-title">{{title}}</h2>
         <h3 class="price-tag">EUR {{price}}</h3>
-        <a href="/products/show">See details</a>
+        <a href="/show/{{_id}}">See details</a>
     </div>
     {{/each}}
 </div>
