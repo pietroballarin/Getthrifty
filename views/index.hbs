@@ -1,19 +1,14 @@
-<div class="header">
-    <img src="/images/logo.png" alt="logo-home">
-    <p class="header-title">Getthrifty</h2>
-</div>
- 
-    <div class="topnav">
-        <a class="active" href="/">Home</a>
-        <a href="/dashboard">Dashboard</a>
-        <a href="/dashboard/new">Create A New Ad</a>
-        <a href="/signup">Sign Up</a>
-        <a style="float:right" href="/logout">Log Out</a>
-        <a style="float:right" href="/login">Log In</a>
-    </div>
 
-    <div class="search-form">
-    <form action="/search" method="GET">
+<div class="topnav">
+    <a class="active" href="/">Home</a>
+    <a href="/dashboard">My products</a>
+    <a href="/dashboard/new">Add a product</a>
+    <a style="float:right" href="/signup">Sign Up</a>
+    <a style="float:right" href="/login">Log In</a>
+</div>
+
+<div class="search-form">
+    <form action="/products/search" method="GET">
         <input type="text" placeholder="Search for products" id="title" name="q">
         <button type="submit">Find more</button>
     </form>
@@ -44,3 +39,4 @@
     </div>
     {{/each}}
 </div>
+<a style=";" href="/logout">Log Out</a>
