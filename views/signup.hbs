@@ -1,24 +1,24 @@
-<div class="signUp"></div>
-{{!-- <h1 class="signup">SIGN UP</h1> --}}
-<form action="/signup" method="POST">
-  <label for="username"><b>Username</b></label>
-  <input type="text" name="username" placeholder=" Enter Username" id="username">
-  <label for="fullname"><b>Your Name</b></label>
-  <input type="text" name="fullname" placeholder=" Enter Fullname" id="fullname">
-  <label for="email"><b>Email</b></label>
-  <input type="text" name="email" placeholder=" Enter Email" id="email">
-  <label for="password"><b>Password</b></label>
-  <input type="password" name="password" placeholder="Enter password" id="password">
-  <button type="submit">SIGN UP</button>
-</form>
-{{#if message}}
-<p>{{message}}</p>
-{{/if}}
-</div>
+<img src="/images/logo.png" width="50" heigth="50" /> <button class='homepage' type="submit">
+  <a href="/">Home</a></button>
 
+<div class="sign-up">
+  <form action="/signup" method="POST">
+    <label for="username"><b>Username</b></label>
+    <input type="text" name="username" placeholder=" Enter Username" id="username">
+    <label for="fullname"><b>Your Name</b></label>
+    <input type="text" name="fullname" placeholder=" Enter Fullname" id="fullname">
+    <label for="email"><b>Email</b></label>
+    <input type="text" name="email" placeholder=" Enter Email" id="email">
+    <label for="password"><b>Password</b></label>
+    <input type="password" name="password" placeholder="Enter password" id="password">
+    <button type="submit">SIGN UP</button>
+   
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  {{#if message}}
+    <p>{{message}}</p>
+    {{/if}} 
+    </div>
+     
 
-<div class="loginPage">
-  <h3>
-    <a href="/login">Login</a>
-  </h3>
+  </form>
 </div>

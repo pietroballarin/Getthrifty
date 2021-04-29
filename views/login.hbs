@@ -1,17 +1,23 @@
 {{!-- <h1>LOGIN</h1> --}}
-<form action="/login" method="POST">
-  <label for="username"><b>Username</b> </label>
-  <input type="text" name="username" placeholder="Enter Username" id="username">
-  <label for="password"><b>Password</b></label>
-  <input type="password" name="password" placeholder="Enter Password" id="password">
-  <button class='login' type="submit">Login</button>
-</form>
-{{#if message}}
-  <p>{{message}}</p>
-{{/if}}
-</div>
-<div class="login-google">
-  <h2>
-    <a href="/google"><button class='login'>Login with Google</button></a>
-  </h2>
+<a href="/"><img src="/images/logo.png" alt="logo-home" heigth="58" width="68"></a>
+
+<div class="login-page">
+  <form action="/login" method="POST">
+    <label for="username"><b>Username</b> </label>
+    <input type="text" name="username" placeholder="Enter Username" id="username">
+    <label for="password"><b>Password</b></label>
+    <input type="password" name="password" placeholder="Enter Password" id="password">
+    <button class='login' type="submit">Login</button>
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>Please fill in your username and password!
+    </div>
+    {{#if message}}
+    <p>{{message}}</p>
+    {{/if}}
+
+    <button class='google-login' type="submit"><a
+        href="https://accounts.google.com/servicelogin/signinchooser?flowName=GlifWebSignIn&flowEntry=ServiceLogin">Login
+        with Google</a></button>
+
+  </form>
 </div>
