@@ -19,7 +19,7 @@
     </div>
 
 <div class="search-form">
-    <form action="/products/search" method="GET">
+    <form action="/search" method="GET">
         <input type="text" placeholder="Search for products" id="title" name="q" class="search">
         <button type="submit" class="submit-prod">Find more</button>
     </form>
@@ -29,7 +29,7 @@
         {{#each productInfo}}
         <div class="img-product">
             <a href="/show/{{_id}}"><img src="{{imgPath}}" alt="Photo for{{title}}"></a>
-            <h2 clasS="product-title">{{title}}</h2>
+            <h2 class="product-title">{{title}}</h2>
             <h3 class="price-tag">EUR {{price}}</h3>
         </div>
         {{/each}}

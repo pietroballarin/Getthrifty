@@ -109,9 +109,6 @@ app.use("/", category);
 const show = require("./routes/show");
 app.use("/", show);
 
-const products = require("./routes/products");
-app.use("/", products);
-
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

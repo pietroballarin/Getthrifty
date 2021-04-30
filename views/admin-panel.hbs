@@ -4,10 +4,11 @@
 </div>
 
 <div class="search-form">
-    <form action="/admin-panel" method="GET">
-        <input type="text" placeholder="Search for products" id="title" name="q">
-        <button type="submit">Find</button>
+    <form action="/search" method="GET">
+        <input type="text" placeholder="Search for products" id="title" name="q" class="search">
+        <button type="submit" class="submit-prod">Find more</button>
     </form>
+</div>
 
 <div class="all-products">
     {{#each productInfo}}

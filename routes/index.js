@@ -43,16 +43,19 @@ router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     })
 })
 
-router.get('/products/search', (req, res, next) => {
-  const {
-    title
-  } = req.query;
+router.get('/search', (req, res, next) => {
   Product.find()
     .then(products => {
-      const searchedProd = products.filter(product => {
-        return product.title === req.query.q;
-      })
-      res.render('products/search', {
+      let searchedProd = products;
+      
+      if (req.query.q) {
+          searchedProd = products.filter(product => {
+           if (!product.title) return false;
+          return product.title.toLowerCase().includes(req.query.q.toLowerCase());
+        });
+      }
+
+      res.render('index', {
         productInfo: searchedProd
       })
     })
