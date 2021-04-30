@@ -1,39 +1,22 @@
 <div class="topnav">
     <a class="active" href="/">Home</a>
     <a href="/dashboard/new">Add product</a>
-     <a style="float:right" href="/logout">Log Out</a>
+    <a style="float:right" href="/logout">Log Out</a>
 </div>
 
 
-<h3>Hello {{user.fullname}}!</h3>
-<h4>Here are your products.
-</h4>
-
-{{!-- <div class="dashboard-users">
-    {{#each productInfo}}
-    <div class="edit-dashboard">
-    <p class="title-product">{{title}}</p>
-    <img src="{{imgPath}}" alt="Photo for{{title}}">
-    <h3 class="price-tag">EUR {{price}}</h3>
-    <form action="/dashboard/{{_id}}" method="POST">
-        <button class="delete-product-btn" type="submit">Delete</button>
-        {{!-- <button class="edit-product-btn" type="submit"><a href="/dashboard/edit/{{_id}}">Edit</a></button> --}}
-    {{!-- </form>
-    <button class="edit-product-btn" type="submit"><a href="/dashboard/edit/{{_id}}">Edit</a></button>
-    </div>
-    {{/each}}
-</div> --}} 
+<h3>Welcome {{user.fullname}}</h3>
+<h4>update your products here!</h4>
 
 <div class="all-products">
     {{#each productInfo}}
     <div class="img-product">
-        <img src="{{imgPath}}" alt="Photo for{{title}}">
+         <a href="/show/{{_id}}"><img src="{{imgPath}}" alt="Photo for{{title}}"></a>
         <h2 class="product-title">{{title}}</h2>
-        <a href="/show/{{_id}}"><button class="more-details-btn">More details</button></a>
-          <form action="/dashboard/{{_id}}" method="POST">
-        <button class="edit-delete-btn" type="submit">Delete</button>
-     <button class="edit-delete-btn" type="submit"><a href="/dashboard/edit/{{_id}}">Edit</a></button>
-    </form>
+        <form action="/dashboard/{{_id}}" method="POST">
+            <button class="edit-delete-btn" type="submit">Delete</button>
+            <button class="edit-delete-btn" type="submit"><a href="/dashboard/edit/{{_id}}">Edit</a></button>
+        </form>
     </div>
     {{/each}}
 </div>

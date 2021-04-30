@@ -4,14 +4,12 @@
     <a style="float:right" href="/login">Login</a>
 </div>
 
-
-<div class="category-details">
+<div class="all-products">
     {{#each productInfo}}
     <div class="img-product">
-    <p>{{title}}</p>
-<img src="{{imgPath}}" height="150px" alt="Photo for{{title}}">
-<br>
-<a href="/show/{{_id}}"></a><button class="edit-delete-btn">More details</button>
-</div>
+         <a href="/show/{{_id}}"><img src="{{imgPath}}" alt="Photo for{{title}}"></a>
+        <h2 clasS="product-title">{{title}}</h2>
+        <h3 class="price-tag">EUR {{price}}</h3>
+    </div>
     {{/each}}
 </div>

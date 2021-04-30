@@ -1,4 +1,3 @@
-
 <div class="topnav">
     <a class="active" href="/">Home</a>
     <a href="/dashboard">My products</a>
@@ -12,32 +11,28 @@
         <input type="text" placeholder="Search for products" id="title" name="q">
         <button type="submit">Find more</button>
     </form>
-</div>
 
-<div class="categoryList">
-    <div class="category-search">
-        <form action="/category" method="GET">
-            <label for="categories">Find a category:</label>
-            <select name="categories" id="categories">
-                {{#each categories}}
-                <option value="{{this}}">{{this}}</option>
-                {{/each}}
-            </select>
-            <button type="submit">Search</button>
-        </form>
-        
+    <div class="categoryList">
+        <div class="category-search">
+            <form action="/category" method="GET">
+                <select name="categories" id="categories">
+                    {{#each categories}}
+                    <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                </select>
+                <button class="submit-prod">Search</button>
+            </form>
+
+        </div>
     </div>
-</div>
 
-<div class="all-products">
-    {{#each productInfo}}
-    <div class="img-product">
-        <img src="{{imgPath}}" alt="Photo for{{title}}">
-        <h2 class="product-title">{{title}}</h2>
-        <h3 class="price-tag">EUR {{price}}</h3>
-        <a href="/show/{{_id}}"><button class="more-details-btn">More details</button></a>
+    <div class="all-products">
+        {{#each productInfo}}
+        <div class="img-product">
+            <a href="/show/{{_id}}"><img src="{{imgPath}}" alt="Photo for{{title}}"></a>
+            <h2 clasS="product-title">{{title}}</h2>
+            <h3 class="price-tag">EUR {{price}}</h3>
+        </div>
+        {{/each}}
     </div>
-    {{/each}}
-</div>
-<a style=";" href="/logout"><button class="edit-delete-btn">Log out</button>
-
+    <a href="/logout"><button class="edit-delete-btn">Log out</button></a>

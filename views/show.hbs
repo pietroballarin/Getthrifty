@@ -8,14 +8,13 @@
 <div class="show-card">
     {{#with productInfo}}
     <h2>{{title}}</h2>
-    <img src="{{imgPath}}"  alt="Photo for{{title}}">
+    <img src="{{imgPath}}" alt="Photo for{{title}}">
     <div class="description">
-    <p><b>Price:</b> {{price}} EUR</p>
-    <p><b>Description:</b> {{description}}</p>
-    <p><b>Address:</b> {{address}}</p>
+        <p><b>Price:</b> {{price}} EUR</p>
+        <p><b>Description:</b> {{description}}</p>
+        <p><b>Address:</b> {{address}}</p>
     </div>
-    <a href="/dashboard/email-form/{{_id}}" ></a><button class="edit-delete-btn">Contact user</button>
+    <a href="mailto:{{userEmail}}" class="edit-delete-btn">Contact user</a>
+
     {{/with}}
 </div>
-
-

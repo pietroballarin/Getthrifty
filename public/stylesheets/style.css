@@ -10,15 +10,16 @@ h1 {
 h2 {
   color: red;
 }
+
 h3 {
   text-align: center;
   padding: 0;
 }
+
 h4 {
   text-align: center;
 }
 
-/*header*/
 .header {
   background-color: rgb(243, 243, 105);
   padding: 0;
@@ -41,12 +42,10 @@ h4 {
   padding: 0;
 }
 
-/*sticky-nav-search-bar*/
+
 .sticky-nav-searchbar {
   position: -webkit-sticky;
   position: sticky;
-  /* overflow: auto; */
-  /* position: fixed; */
   margin: 0;
   padding: 0;
   font-size: 20px;
@@ -71,57 +70,25 @@ h4 {
 }
 
 .topnav a.active {
-  background-color:  rgb(68, 66, 66);
+  background-color: rgb(68, 66, 66);
   color: white;
 }
 
 .topnav a:hover {
-  background-color:  rgb(243, 243, 105);
+  background-color: rgb(243, 243, 105);
   color: rgb(68, 66, 66);
 }
 
-/*search form for products*/
-.search-form form {
-  display: flex;
-  margin: 0;
-  padding: 0;
-  background-color: #cae8ca;
-  overflow: hidden;
-}
-
-.search-form button {
-  color: rgb(68, 66, 66);
-  text-align: center;
-}
-
-.search-form button:hover {
-  color: white;
-  background-color: rgb(68, 66, 66);
-}
-
-
-.category-search {
-  border: red;
-}
-.categoryList button {
-  margin: 0;
-  padding: 0;
-  color: red;
-}
-
-/*products on index.hbs*/
 .all-products {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row-reverse;
-  /* justify-content: space-around; */
   justify-content: space-evenly;
-  /* border:solid rgb(55, 0, 255); */
   margin-top: 50px;
 }
 
 .img-product {
-  border: solid rgb(243, 243, 105);
+  border: solid rgb(236, 236, 199);
   border-radius: 10px;
   width: 20%;
   display: flex;
@@ -134,14 +101,7 @@ h4 {
 .img-product img {
   width: 180px;
   height: 150px;
-  padding: 5px;
-}
-
-.product-title {
-  font-size: 18px;
-  color: rgb(68, 66, 66);
-  margin: 0;
-  padding: 0px 10px 5px 5px;
+  padding: 0;
 }
 
 .price-tag {
@@ -151,68 +111,33 @@ h4 {
   color: rgb(68, 66, 66);
 }
 
+.product-title {
+  font-size: 16px;
+  color: rgb(68, 66, 66);
+  margin-bottom: 5px;
+  padding: 0;
+}
+
 .img-product a {
   padding: 0px 10px 5px 5px;
 }
 
-.img-product p{
+.img-product p {
   color: rgb(194, 93, 11);
   margin: 5px;
   font-size: 15px;
 }
 
-/* dashboard.hbs
-.dashboard-users {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-top: 20px;
-}
-
-.product-card {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.edit-dashboard  {
-  border: solid rgb(243, 243, 105);
-  border-radius: 10px;
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
-.edit-dashboard img {
-  width: 150px;
-  height: 100px;
-  padding: 0px;
-} */
-/* .delete-product-btn {
-  color: inherit;
-  background-color: rgb(47, 105, 76);
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-.delete-product-btn a:hover {
-  background-color:  rgb(243, 243, 105);
-  color: rgb(68, 66, 66);
-} */
-
-
-/*login*/
 .login-page {
   display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
   margin-top: 70px;
 }
+
 .login-title {
   color: rgb(68, 66, 66);
   font-size: 50px;
@@ -226,6 +151,7 @@ h4 {
   background-color: rgb(243, 243, 105);
   color: rgb(47, 105, 76);
 }
+
 .closebtn {
   margin-left: 15px;
   color: red;
@@ -244,34 +170,35 @@ h4 {
   align-items: center;
   align-content: space-around;
 }
+
 .login-page input[type=text],
 input[type=password] {
-padding: 10px;
-margin: 10px 5px;
-display: inline-block;
-border: 3px solid  rgb(243, 243, 105);
-box-sizing: border-box;
+  padding: 10px;
+  margin: 10px 5px;
+  display: inline-block;
+  border: 3px solid rgb(243, 243, 105);
+  box-sizing: border-box;
 }
 
 .sign-up {
   display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
   margin-top: 70px;
-
 }
 
 .sign-up input[type=text],
 input[type=password] {
-padding: 10px;
-margin: 10px 5px;
-display: inline-block;
-border: 3px solid  rgb(243, 243, 105);
-box-sizing: border-box;
+  padding: 10px;
+  margin: 10px 5px;
+  display: inline-block;
+  border: 3px solid rgb(243, 243, 105);
+  box-sizing: border-box;
 }
+
 .sign-up form {
   display: flex;
   flex-direction: column;
@@ -281,12 +208,14 @@ box-sizing: border-box;
   align-content: space-around;
 }
 
-/*style add product form*/
 .add-product {
   font-style: normal;
-  background-color: rgb(243, 243, 105);
+  background-color: rgb(236, 236, 199);
 }
-.add-product input[type=text], select, textarea {
+
+.add-product input[type=text],
+select,
+textarea {
   width: 100%;
   padding: 5px;
   border: 1px solid #ccc;
@@ -295,43 +224,49 @@ box-sizing: border-box;
   margin-bottom: 5px;
   resize: vertical;
 }
-.add-product input[type=submit] {
+
+.submit-prod {
   background-color: rgb(47, 105, 76);
   color: white;
-  padding: 15px;
+  padding: 10px;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
+  margin: 0;
+  font-size: 15px;
 }
-.add-product input[type=submit]:hover {
+
+.submit-prod:hover {
   background-color: rgb(206, 119, 20);
   color: white;
 }
 
 .show-card {
-display: flex;
-flex-wrap: wrap;
-flex-direction: column;
-margin-top: 50px;
-justify-content: space-around;
-align-items: center; 
-padding: 0;
-background-color: rgb(248, 244, 244)
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-top: 50px;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+  background-color: rgb(248, 244, 244)
 }
+
 .show-card img {
   height: 200px;
   margin: 5px;
 }
+
 .show-card h2 {
   color: rgb(194, 93, 11);
-  /* padding: 15px; */
   margin: 15px;
 }
 
 .show-card p {
   padding: 5px;
   margin: 0;
-} 
+}
+
 .description {
   padding: 0px 120px 0px 120px;
 }
@@ -342,12 +277,6 @@ background-color: rgb(248, 244, 244)
   flex-direction: column-reverse;
   justify-content: space-around;
   margin-top: 20px;
-}
-.product-title {
-  font-size: 18px;
-  color: rgb(68, 66, 66);
-  margin: 0;
-  padding: 0px 10px 5px 5px;
 }
 
 .edit-delete-btn {
@@ -361,24 +290,27 @@ background-color: rgb(248, 244, 244)
   font-size: 16px;
   cursor: pointer;
 }
+
 .edit-delete-btn:hover {
-  background-color:  rgb(243, 243, 105);
-  color:rgb(68, 66, 66);
+  background-color: rgb(243, 243, 105);
+  color: rgb(68, 66, 66);
 }
 
-.more-details-btn {
-  background-color:rgb(47, 105, 76); 
-  border: none;
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(68, 66, 66);
   color: white;
-  padding: 5px 10px 5px 10px;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  cursor: pointer;
 }
-
-.more-details-btn:hover {
-  background-color:  rgb(243, 243, 105);
-  color:rgb(68, 66, 66);
+.category-search select {
+  width: 92%;
+  padding: 6;
+  border: 3px solid rgb(236, 236, 199);
+  box-sizing: border-box;
+  resize: vertical;
+  margin: 0;
+  background-color: rgb(236, 236, 199);
 }
