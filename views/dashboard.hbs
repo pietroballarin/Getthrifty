@@ -14,8 +14,10 @@
          <a href="/show/{{_id}}"><img src="{{imgPath}}" alt="Photo for{{title}}"></a>
         <h2 class="product-title">{{title}}</h2>
         <form action="/dashboard/{{_id}}" method="POST">
-            <button class="edit-delete-btn" type="submit">Delete</button>
-            <button class="edit-delete-btn" type="submit"><a href="/dashboard/edit/{{_id}}" class="delete-btn">Edit</a></button>
+            <button class="edit-delete-btn" type="submit">Delete</button>    
+        </form>
+        <form action="/dashboard/{{_id}}" method="POST"></form>
+        <button class="edit-delete-btn" type="submit"><a href="/dashboard/edit/{{_id}}" class="delete-btn">Edit</a></button>
         </form>
     </div>
     {{/each}}
