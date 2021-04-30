@@ -62,7 +62,7 @@ router.post('/dashboard/new', uploader.single('photo'), (req, res) => {
   }
 });
 
-module.exports = router;
+
 
 router.post('/dashboard/edit/:id', uploader.single('photo'), (req, res, next) => {
   const {title, description, condition, price, address, userEmail} = req.body;

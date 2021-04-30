@@ -6,24 +6,13 @@
     <a style="float:right" href="/login">Login</a>
 </div>
 
-    <div class="categoryList">
-        <div class="category-search">
-            <form action="/category" method="GET">
-                <select name="categories" id="categories">
-                    {{#each categories}}
-                    <option value="{{this}}">{{this}}</option>
-                    {{/each}}
-                </select>
-                <button class="submit-prod">Search</button>
-            </form>  
-    </div>
-
 <div class="search-form">
-    <form action="/products/search" method="GET">
-        <input type="text" placeholder="Search for products" id="title" name="q" class="search">
+    <form action="/products/search" method="GET" class="category-search">
+        <input type="text" placeholder="Search for products" id="title" name="q">
         <button type="submit" class="submit-prod">Find more</button>
     </form>
 </div>
+
 
     <div class="all-products">
         {{#each productInfo}}

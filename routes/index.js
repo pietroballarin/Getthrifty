@@ -43,7 +43,7 @@ router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     })
 })
 
-router.get('/search', (req, res, next) => {
+router.get('/products/search', (req, res, next) => {
   const {
     title
   } = req.query;
@@ -52,14 +52,13 @@ router.get('/search', (req, res, next) => {
       const searchedProd = products.filter(product => {
         return product.title === req.query.q;
       })
-      console.log(searchedProd, 'aAAA')
-      res.render('index.hbs', {
+      res.render('products/search', {
         productInfo: searchedProd
       })
     })
     .catch(err => {
       next(err);
-    })
+  })
 })
 
 router.get('/category', (req, res, next) => {
