@@ -78,7 +78,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // default value for title local
-const projectName = "bookshare";
+const projectName = "GetThrifty";
 const capitalized = (string) =>
   string[0].toUpperCase() + string.slice(1).toLowerCase();
 
